@@ -1,0 +1,16 @@
+{
+  "name": "use-nfc",
+  "version": "1.0.0",
+  "description": "Web-NFC api in form of a React hook",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "inhopj",
+  "license": "MIT",
+  "repository": "inhopj/web-nfc",
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
