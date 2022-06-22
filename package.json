@@ -1,5 +1,5 @@
 {
-  "name": "use-nfc",
+  "name": "nfc",
   "version": "1.0.0",
   "description": "Web-NFC api in form of a React hook",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "inhopj",
   "license": "MIT",
-  "repository": "inhopj/web-nfc",
+  "repository": "inhopj/nfc",
   "peerDependencies": {
     "react": "^18.2.0"
   }
