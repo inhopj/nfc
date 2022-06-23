@@ -1,4 +1,7 @@
-// TODO - check if it can be removed and only importuseState and useEffect, test build!!!
+/**
+ * TODOs - Add eslint, add husky pre-commit hook
+ */
+// TODO - check if it can be removed and only import useState and useEffect, test build!!!
 // import { useState, useEffect } from 'react';
 import * as React from 'react';
 
