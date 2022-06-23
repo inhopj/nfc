@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Web-NFC api in form of a React hook",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
