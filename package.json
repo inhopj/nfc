@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c && tsc -d --emitDeclarationOnly --noEmit false --declarationDir dist"
   },
   "keywords": [],
   "author": "inhopj",
