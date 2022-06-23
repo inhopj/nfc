@@ -1,0 +1,22 @@
+
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# builds
+build
+dist
+
+# TODO - dig more to see if it can be removed, see https://github.com/ezolenko/rollup-plugin-typescript2/issues/34
+.rpt2_cache
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
