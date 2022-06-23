@@ -20,6 +20,7 @@ export default {
       sourcemap: true
     }
   ],
+  // tell rollup to not roll up react as it's a peer dependency
   external: ['react'],
   plugins: [
     resolve(),
