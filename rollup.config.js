@@ -20,6 +20,7 @@ export default {
       sourcemap: true
     }
   ],
+  external: ['react'],
   plugins: [
     resolve(),
     typescript(),
