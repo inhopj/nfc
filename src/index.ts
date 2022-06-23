@@ -2,7 +2,7 @@
 // import { useState, useEffect } from 'react';
 import * as React from 'react';
 
-export const useMyHook = () => {
+export const useCounter = () => {
   let [{
     counter
   }, setState] = React.useState<{
