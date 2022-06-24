@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom"
+    "react-dom": "file:../node_modules/react-dom",
+    "nfc": "file:.."
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
