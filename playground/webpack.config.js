@@ -6,6 +6,7 @@ module.exports = {
   output: {
     filename: "bundle.[hash].js",
     path: path.resolve(__dirname, "build"),
+    clean: true
   },
   plugins: [
     new HtmlWebpackPlugin({
