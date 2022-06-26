@@ -18,7 +18,8 @@
     "@mui/material": "^5.8.5",
     "nfc": "file:..",
     "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom"
+    "react-dom": "file:../node_modules/react-dom",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
