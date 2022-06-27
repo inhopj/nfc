@@ -3,6 +3,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
 import NfcIcon from '@mui/icons-material/Nfc';
+import SensorsIcon from '@mui/icons-material/Sensors';
 import CreateIcon from '@mui/icons-material/Create';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -21,14 +22,14 @@ const BottomNav = () => {
     >
       <BottomNavigationAction
         label="Home"
-        icon={<HomeIcon />}
+        icon={<NfcIcon />}
         component={Link}
         to="/"
         value='/'
         />
       <BottomNavigationAction
         label="Scan"
-        icon={<NfcIcon />}
+        icon={<SensorsIcon />}
         component={Link}
         to="/scan"
         value='/scan'
