@@ -10,7 +10,6 @@ export const useNfc = () => {
   const [ndef, setNdef] = useState<NDEFReader>()
   const [permission, setPermission] = useState('')
 
-  // Test if this should be a ref
   const [readCtrl, setReadCtrl] = useState(new AbortController())
   const [isScanning, setIsScanning] = useState(false)
 
