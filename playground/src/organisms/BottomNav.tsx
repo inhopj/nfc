@@ -8,9 +8,8 @@ import { Link, useLocation } from 'react-router-dom';
 
 
 const BottomNav = () => {
-  const [value, setValue] = useState()
   const pathname = useLocation().pathname
-  console.log(location);
+  const [value, setValue] = useState(pathname)
   
   return (
     <BottomNavigation
