@@ -3,26 +3,133 @@
  */
 // TODO - check if it can be removed and only import useState and useEffect, test build!!!
 // import { useState, useEffect } from 'react';
-import * as React from 'react';
+import { useEffect, useState } from "react"
 
-export const useCounter = () => {
-  let [{
-    counter
-  }, setState] = React.useState<{
-    counter: number;
-  }>({
-    counter: 0
-  });
+export const useNfc = () => {
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter+= 2;
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
+  const [ndef, setNdef] = useState<NDEFReader>()
+  const [permission, setPermission] = useState('')
 
-  return counter;
-};
+  // Test if this should be a ref
+  const [readCtrl, setReadCtrl] = useState(new AbortController())
+  const [isScanning, setIsScanning] = useState(false)
+
+  useEffect(() => {
+    const init = async () => {
+      if ("NDEFReader" in window) {
+        setNdef(new NDEFReader())
+        console.log("READER CREATED");
+
+        // permission
+        const permissionName = "nfc" as PermissionName;
+        const permissionStatus = await navigator.permissions.query({ name: permissionName });
+
+        setPermission(permissionStatus.state)
+
+        permissionStatus.onchange = function () {
+          setPermission(this.state)
+          console.log("PERMISSION STATUS CHANGED ", permissionStatus);
+        };
+
+        // onabort hook 
+        readCtrl.signal.onabort = ((e: Event) => {
+          console.log("Inside onabort hook!!", e);
+          setIsScanning(false)
+          setReadCtrl(new AbortController())
+          console.log("--- Creating new readCtrl ---");
+        })
+      }
+    }
+    init();
+  }, [readCtrl.signal])
+
+  const read = async (): Promise<NDEFReadingEvent> => {
+
+    return new Promise(async (resolve, reject) => {
+
+      if (isScanning) {
+        reject("Error - Reader already scanning")
+      }
+
+      if (permission === 'denied') {
+        reject("Error - Missing permissions, NFC devices blocked ")
+      }
+
+      if (!isScanning) {
+
+        try {
+          await ndef!.scan({ signal: readCtrl.signal })
+          setIsScanning(true)
+          ndef!.addEventListener("reading", (event) => {
+
+            resolve(event as NDEFReadingEvent);
+            setTimeout(() => {
+              console.log("Aborting...")
+              readCtrl.abort()
+            }, 5000);
+          }, { once: true, signal: readCtrl.signal });
+
+          ndef!.addEventListener("readingerror", (error) => {
+
+            reject(error);
+            setTimeout(() => {
+              console.log("Aborting...")
+              readCtrl.abort()
+
+            }, 5000);
+          }, { once: true, signal: readCtrl.signal });
+        } catch (error) {
+
+          console.log(`Error! Scan failed to start: ${error}.`)
+          readCtrl.abort()
+          reject(error);
+        }
+      }
+
+      // Could make sense to add an option to the hook to make it Timeout (Pormise Rejected) after a predefined amount of ms!!
+      // setTimeout(() => {
+      //   console.log("Timeout"!!");
+      // }, 15000);
+
+    });
+  }
+
+  const write = async (record: string) => {
+    console.log("INSIDE WRITE FUNCTION");
+
+    return new Promise(async (resolve, reject) => {
+      if (!isScanning) {
+        try {
+          await ndef!.scan({ signal: readCtrl.signal || null })
+          const urlRecord = {
+            recordType: "url",
+            data: record
+          }
+          await ndef!.write({ records: [urlRecord] });
+          resolve(true);
+        } catch (error) {
+          console.log(error)
+          reject(false);
+        }
+        setIsScanning(true)
+      }
+
+    });
+  }
+
+  const abortReadCtrl = () => {
+    console.log("From abortReadCtrl");
+    console.log("readCtrl ", readCtrl);
+
+    readCtrl.abort()
+  }
+
+  return {
+    isNDEFAvailable: ndef !== undefined && permission !== "denied" as PermissionState,
+    permission,
+    read,
+    abortReadCtrl,
+    write
+  }
+
+}
