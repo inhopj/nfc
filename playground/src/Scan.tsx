@@ -28,8 +28,7 @@ const Scan = () => {
       const decoder = new TextDecoder('utf-8');
       
       const decodedContent = decoder.decode(record.data)
-      
-      console.log("TYPEOF DECODED RECORD:", typeof decodedContent);
+
       console.log("DECODED RECORD:", decodedContent);
       setData(decodedContent)
       setOpen(true)
