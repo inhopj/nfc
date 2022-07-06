@@ -124,7 +124,7 @@ export const useNfc = () => {
   }
 
   return {
-    isNDEFAvailable: ndef !== undefined && permission !== "denied" as PermissionState,
+    isNDEFAvailable: ndef !== undefined,
     permission,
     read,
     abortReadCtrl,
