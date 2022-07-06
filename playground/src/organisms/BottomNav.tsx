@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import HomeIcon from '@mui/icons-material/Home';
 import NfcIcon from '@mui/icons-material/Nfc';
 import SensorsIcon from '@mui/icons-material/Sensors';
 import CreateIcon from '@mui/icons-material/Create';
 import { Link, useLocation } from 'react-router-dom';
+import { useNfc } from 'nfc';
 
 
 const BottomNav = () => {
   const pathname = useLocation().pathname
   const [value, setValue] = useState(pathname)
+  const { isNDEFAvailable } = useNfc()
   
   return (
     <BottomNavigation
@@ -33,6 +34,7 @@ const BottomNav = () => {
         component={Link}
         to="/scan"
         value='/scan'
+        disabled={!isNDEFAvailable}
         />
       <BottomNavigationAction
         label="Write"
@@ -40,6 +42,7 @@ const BottomNav = () => {
         component={Link}
         to="/write"
         value='/write'
+        disabled={!isNDEFAvailable}
         />
     </BottomNavigation>
   );
