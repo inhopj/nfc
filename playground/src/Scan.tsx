@@ -11,9 +11,11 @@ import DialogActions from '@mui/material/DialogActions';
 
 const Scan = () => {
   const { isNDEFAvailable, permission, read, abortReadCtrl, write } = useNfc()
-  const [data, setData] = useState<any>(null)
+  const [data, setData] = useState<string | null>(null)
   const [open, setOpen] = useState(false)
   const [isScanning, setIsScanning] = useState<boolean>()
+
+  console.log("isNDEFAvailable: ", isNDEFAvailable);
   const handleRead = async () => {
     try {
       setIsScanning(true)
@@ -21,11 +23,14 @@ const Scan = () => {
       
       const record = re.message.records[0]
       
+      console.log("RAW RECORD:", re.message.records[0]);
+      
       const decoder = new TextDecoder('utf-8');
       
       const decodedContent = decoder.decode(record.data)
       
-      console.log("DECODED RECORD ", decodedContent);
+      console.log("TYPEOF DECODED RECORD:", typeof decodedContent);
+      console.log("DECODED RECORD:", decodedContent);
       setData(decodedContent)
       setOpen(true)
       
@@ -44,7 +49,7 @@ const Scan = () => {
     <Container
       sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }}
     >
-      {/* <SensorsIcon sx={{ fontSize: 100 }}/> */}
+      <SensorsIcon sx={{ fontSize: 100 }}/>
       {!isScanning && <Button variant="contained" endIcon={<SensorsIcon />} onClick={handleRead}>
         Start Scan
       </Button>}
@@ -60,7 +65,7 @@ const Scan = () => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {data}
+            {data && data}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
