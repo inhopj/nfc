@@ -109,6 +109,7 @@
     // TODO - decomment below line when the playground build will be setup
     "build",
     "dist",
-    "rollup.config.js"
+    "rollup.config.js",
+    "postbuild.js"
   ]
 }
