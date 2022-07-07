@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNfc } from 'nfc'
-import NfcIcon from '@mui/icons-material/Nfc';
 import TapAndPlayIcon from '@mui/icons-material/TapAndPlay';
 
 const Home = () => {
