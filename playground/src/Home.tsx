@@ -33,13 +33,17 @@ const Home = () => {
               - Turn on NFC on your device. It's usually under Settings {'>'} Connections or Control Center
             </strong>
           </Alert>
-
         </>
       )}
       {isNDEFAvailable !== undefined && isNDEFAvailable && (
         <>
-          Hey there! Your browser looks NFC capable, you're good to go!<br />
-          Try a Scan or a Write from one of the below tabs<br />
+          <Alert severity="success">
+            <AlertTitle>Nice!</AlertTitle>
+            <strong>
+              Your browser looks NFC capable, you're good to go!<br /><br />
+              Try a Scan or a Write from one of the below tabs<br />
+            </strong>
+          </Alert>
         </>
       )}
     </div>
