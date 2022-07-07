@@ -41,7 +41,7 @@ const Home = () => {
             <AlertTitle>Nice!</AlertTitle>
             <strong>
               Your browser looks NFC capable, you're good to go!<br /><br />
-              Try a Scan or a Write from one of the below tabs<br />
+              Try to Write or Scan an NFC tag!<br />
             </strong>
           </Alert>
         </>
