@@ -3,7 +3,7 @@ const path = require('path')
 
 const filePath = path.join(process.cwd(), 'index.d.ts')
 
-const runPostbuild = async () => {
+const runPostBuild = async () => {
   try {
     console.log('---------- POST BUILD ----------')
     const sourceContent = await fs.readFile(filePath, 'utf-8')
@@ -18,4 +18,4 @@ const runPostbuild = async () => {
 
 }
 
-runPostbuild()
+runPostBuild()
