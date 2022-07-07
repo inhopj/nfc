@@ -7,7 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "rollup -c -w",
-    "build": "rollup -c && tsc -d --emitDeclarationOnly --noEmit false --declarationDir dist --declarationMap true"
+    "build": "npm run rollup-step && npm run tsc-step && npm run postbuild-step",
+    "rollup-step": "rollup -c",
+    "tsc-step": "tsc -d --emitDeclarationOnly --noEmit false --declarationDir dist",
+    "postbuild-step": "node ./postbuild.js"
   },
   "keywords": [],
   "author": "inhopj",
