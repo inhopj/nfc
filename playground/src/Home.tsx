@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useNfc } from 'nfc'
 import NfcIcon from '@mui/icons-material/Nfc';
+import TapAndPlayIcon from '@mui/icons-material/TapAndPlay';
 
 const Home = () => {
   const { isNDEFAvailable } = useNfc()
   console.log("isNDEFAvailable: ", isNDEFAvailable);
-  
+
   return (
     <div
-      className='flex flex-col min-h-screen justify-start items-center p-5 md:p-8'
+      className='flex flex-col min-h-screen justify-start items-center p-6 pt-10'
     >
-      <div className='flex justify-between items-center p-4 md:p-8'>
-        <div className=''>
-          <NfcIcon />
-        </div>
-        <div>
-          useNfc PLAYGROUND
+      <div className='flex mb-4'>
+        <TapAndPlayIcon color='primary' sx={{ fontSize: 70 }} />
+      </div>
+      <div className='flex justify-center items-center w-full'>
+        <div className='flex text-xl text-gray-500'>
+          useNfc Playground
         </div>
       </div>
 
