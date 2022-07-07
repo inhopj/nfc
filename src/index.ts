@@ -99,12 +99,15 @@ export const useNfc = () => {
     });
   }
 
+  // TODO - write should accept (message: NDEFMessageSource, options?: NDEFWriteOptions | undefined)
   const write = async (record: string) => {
     console.log("INSIDE WRITE FUNCTION");
 
     return new Promise(async (resolve, reject) => {
       if (!isScanning) {
         try {
+          // TODO - use writeCtrl here instead of readCtrl
+          // TODO - why || null??
           await ndef!.scan({ signal: readCtrl.signal || null })
           const urlRecord = {
             recordType: "url",
@@ -129,6 +132,8 @@ export const useNfc = () => {
     readCtrl.abort()
   }
 
+  // TODO - Create writeCtrl
+  // TODO - Create abortWriteCtrl
   return {
     isNDEFAvailable: isNDEFAvailable,
     permission,
