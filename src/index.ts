@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 export const useNfc = () => {
 
   const [ndef, setNdef] = useState<NDEFReader>()
+  const [isNDEFAvailable, setIsNDEFAvailable] = useState<undefined | boolean>()
   const [permission, setPermission] = useState('')
 
   const [readCtrl, setReadCtrl] = useState(new AbortController())
@@ -19,6 +20,9 @@ export const useNfc = () => {
         setNdef(new NDEFReader())
         console.log("READER CREATED");
 
+        // NDEF availability
+        setIsNDEFAvailable(true)
+        
         // permission
         const permissionName = "nfc" as PermissionName;
         const permissionStatus = await navigator.permissions.query({ name: permissionName });
@@ -37,6 +41,8 @@ export const useNfc = () => {
           setReadCtrl(new AbortController())
           console.log("--- Creating new readCtrl ---");
         })
+      } else {
+        setIsNDEFAvailable(false)
       }
     }
     init();
@@ -124,7 +130,7 @@ export const useNfc = () => {
   }
 
   return {
-    isNDEFAvailable: ndef !== undefined,
+    isNDEFAvailable: isNDEFAvailable,
     permission,
     read,
     abortReadCtrl,
