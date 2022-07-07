@@ -1,5 +1,5 @@
 import Container from '@mui/material/Container';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SensorsIcon from '@mui/icons-material/Sensors';
 import Button from '@mui/material/Button';
 import { useNfc } from 'nfc'
@@ -35,6 +35,7 @@ const Scan = () => {
       setOpen(true)
 
     } catch (error) {
+      setIsScanning(false)
       console.log("ERROR ", error);
     }
   }
