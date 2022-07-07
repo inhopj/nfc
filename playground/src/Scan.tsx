@@ -62,7 +62,7 @@ const Scan = () => {
           </div>
         </div>
       )}
-      {<Dialog
+      {data && <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
