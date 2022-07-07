@@ -50,9 +50,16 @@ const Scan = () => {
     <Container
       sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }}
     >
-      {!isScanning && <Button variant="contained" endIcon={<SensorsIcon />} onClick={handleRead}>
-        Start Scan
-      </Button>}
+      {!isScanning && (
+        <Button
+          variant="contained"
+          endIcon={<SensorsIcon />}
+          onClick={handleRead}
+          disabled={permission as PermissionState === 'denied'}
+        >
+          Start Scan
+        </Button>
+      )}
       {isScanning && (
         <div className='flex flex-col justify-center items-center'>
           <div className='flex mb-4'>
