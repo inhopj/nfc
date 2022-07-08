@@ -12,7 +12,6 @@ export const useNfc = () => {
   const [permission, setPermission] = useState('')
 
   const [readCtrl, setReadCtrl] = useState(new AbortController())
-  const [writeCtrl, setWriteCtrl] = useState(new AbortController())
   const [isScanning, setIsScanning] = useState(false)
 
   useEffect(() => {
@@ -100,7 +99,6 @@ export const useNfc = () => {
     });
   }
 
-  // TODO - write should accept (message: NDEFMessageSource, options?: NDEFWriteOptions | undefined)
   const write = async (message: NDEFMessageSource, readCtrl: AbortController, options?: NDEFWriteOptions | undefined) => {
     console.log("INSIDE WRITE FUNCTION");
 
