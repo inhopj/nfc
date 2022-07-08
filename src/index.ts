@@ -12,6 +12,7 @@ export const useNfc = () => {
   const [permission, setPermission] = useState('')
 
   const [readCtrl, setReadCtrl] = useState(new AbortController())
+  const [writeCtrl, setWriteCtrl] = useState(new AbortController())
   const [isScanning, setIsScanning] = useState(false)
 
   useEffect(() => {
@@ -100,20 +101,14 @@ export const useNfc = () => {
   }
 
   // TODO - write should accept (message: NDEFMessageSource, options?: NDEFWriteOptions | undefined)
-  const write = async (record: string) => {
+  const write = async (message: NDEFMessageSource, readCtrl: AbortController, options?: NDEFWriteOptions | undefined) => {
     console.log("INSIDE WRITE FUNCTION");
 
     return new Promise(async (resolve, reject) => {
       if (!isScanning) {
         try {
-          // TODO - use writeCtrl here instead of readCtrl
-          // TODO - why || null??
-          await ndef!.scan({ signal: readCtrl.signal || null })
-          const urlRecord = {
-            recordType: "url",
-            data: record
-          }
-          await ndef!.write({ records: [urlRecord] });
+          await ndef!.scan({ signal: readCtrl.signal})
+          await ndef!.write(message, options);
           resolve(true);
         } catch (error) {
           console.log(error)
@@ -132,8 +127,6 @@ export const useNfc = () => {
     readCtrl.abort()
   }
 
-  // TODO - Create writeCtrl
-  // TODO - Create abortWriteCtrl
   return {
     isNDEFAvailable: isNDEFAvailable,
     permission,
