@@ -10,7 +10,8 @@
     "build": "npm run rollup-step && npm run tsc-step && npm run postbuild-step",
     "rollup-step": "rollup -c",
     "tsc-step": "tsc -d --emitDeclarationOnly --noEmit false --declarationDir dist",
-    "postbuild-step": "node ./postbuild.js"
+    "postbuild-step": "node ./postbuild.js",
+    "publish": "npm run build && npm publish dist"
   },
   "keywords": [],
   "author": "inhopj",
