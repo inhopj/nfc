@@ -5,7 +5,7 @@ import NfcIcon from '@mui/icons-material/Nfc';
 import SensorsIcon from '@mui/icons-material/Sensors';
 import CreateIcon from '@mui/icons-material/Create';
 import { Link, useLocation } from 'react-router-dom';
-import { useNfc } from 'nfc';
+import { useNfc } from 'use-nfc';
 
 
 const BottomNav = () => {
