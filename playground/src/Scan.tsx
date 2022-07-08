@@ -17,6 +17,9 @@ const Scan = () => {
   const [isScanning, setIsScanning] = useState<boolean>()
 
   console.log("isNDEFAvailable: ", isNDEFAvailable);
+  
+  // TODO - handle empty string record
+  // TODO - display serial number
   const handleRead = async () => {
     try {
       setIsScanning(true)
