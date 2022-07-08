@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNfc } from 'use-nfc'
+import { useNfc } from 'use-nfc-hook'
 import TapAndPlayIcon from '@mui/icons-material/TapAndPlay';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';

@@ -2,7 +2,7 @@ import Container from '@mui/material/Container';
 import React, { useEffect, useState } from 'react';
 import SensorsIcon from '@mui/icons-material/Sensors';
 import Button from '@mui/material/Button';
-import { useNfc } from 'use-nfc'
+import { useNfc } from 'use-nfc-hook'
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
