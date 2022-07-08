@@ -2,7 +2,7 @@
 
 A React Hook that wraps the [Web NFC api](https://w3c.github.io/web-nfc/#handover-records)
 
-# Features
+## Features
 
 - Browser availability check
 - NFC Permission check
@@ -12,7 +12,12 @@ A React Hook that wraps the [Web NFC api](https://w3c.github.io/web-nfc/#handove
 - Write NFC tag
 - Make Read only an NFC tag (soon)
 
-# Quickstart
+## Install
+```
+npm i use-nfc
+```
+
+## Quickstart
 
 ```jsx
 import React from 'react';
