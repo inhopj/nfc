@@ -16,14 +16,14 @@ A React Hook that wraps the [Web NFC api](https://w3c.github.io/web-nfc/#handove
 ## Install
 
 ```bash
-npm i use-nfc
+npm i use-nfc-hook
 ```
 
 ## Quickstart
 
 ```jsx
 import React from 'react';
-import { useNfc } from 'nfc';
+import { useNfc } from 'use-nfc-hook';
 
 const App = () => {
   const { isNDEFAvailable, permission, read, abortReadCtrl, write } = useNfc()
@@ -49,7 +49,7 @@ const App = () => {
   
   return (
     <>
-      {isNDEFAvailable !== undefined && !isNDEFAvailable (
+      {isNDEFAvailable !== undefined && !isNDEFAvailable && (
         <div>Looks like NDEF is not available</div>
       )}
       {isNDEFAvailable && <button
