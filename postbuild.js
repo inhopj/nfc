@@ -11,8 +11,11 @@ const postBuild = async () => {
     const targetPath = path.join(process.cwd(), '/dist/index.d.ts')
     
     await fs.appendFile(targetPath, sourceContent)
-
+    
+    console.log('---------- POST BUILD COMPLETED ----------')
+    
   } catch (error) {
+    console.log('---------- POST BUILD ERROR ----------')
     console.log(error)
   }
 
