@@ -4,8 +4,9 @@ A React Hook that wraps the [Web NFC api](https://w3c.github.io/web-nfc/#handove
 
 ## Features
 
-- Browser availability check
-- NFC Permission check
+- NFC (NDEF actually) feature detection.
+- NFC permission detection.
+- NFC permission change detection.
 - Read NFC tag
 - Abort Reading operation (uses Abort Controller)
 - Automatic re-initialization after (scan start failure, read error, successful reading, reading abortion)
