@@ -13,7 +13,8 @@ A React Hook that wraps the [Web NFC api](https://w3c.github.io/web-nfc/#handove
 - Make Read only an NFC tag (soon)
 
 ## Install
-```
+
+```bash
 npm i use-nfc
 ```
 
@@ -63,3 +64,19 @@ const App = () => {
   );
 }
 ```
+
+## Development
+
+1. Run rollup with watch flag to watch the `/src` folder and automatically recompile it into `/dist` whenever you ake a change.
+
+```bash
+npm run dev
+```
+
+2. Start the React playground app you have under `/playground` In another terminal tab
+
+```bash
+cd playground && npm run start
+```
+
+This way webpack will automatically open your browser, lunch the React playground app and whenever you make a change to `/src` or `/playground` it will [hot-reload](https://webpack.js.org/concepts/hot-module-replacement/) allowing to see the changes in real time.
