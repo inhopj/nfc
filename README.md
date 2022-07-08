@@ -1,4 +1,4 @@
-# use-nfc
+# use-nfc-hook
 
 A React Hook that wraps the [Web NFC api](https://w3c.github.io/web-nfc/#handover-records)
 
