@@ -99,7 +99,7 @@ export const useNfc = () => {
     });
   }
 
-  const write = async (message: NDEFMessageSource, readCtrl: AbortController, options?: NDEFWriteOptions | undefined) => {
+  const write = async (message: NDEFMessageSource, options?: NDEFWriteOptions | undefined) => {
     console.log("INSIDE WRITE FUNCTION");
 
     return new Promise(async (resolve, reject) => {
