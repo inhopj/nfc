@@ -1,6 +1,6 @@
 {
   "name": "use-nfc-hook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Web-NFC api in form of a React hook",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
