@@ -1,5 +1,5 @@
 {
-  "name": "nfc",
+  "name": "use-nfc",
   "version": "1.0.0",
   "description": "Web-NFC api in form of a React hook",
   "main": "dist/index.js",
@@ -16,7 +16,15 @@
   "keywords": [],
   "author": "inhopj",
   "license": "MIT",
-  "repository": "inhopj/nfc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inhopj/nfc.git"
+  },
+  "types": "./dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/inhopj/nfc/issues"
+  },
+  "homepage": "https://github.com/inhopj/nfc#readme",
   "peerDependencies": {
     "react": "^18.2.0"
   },
