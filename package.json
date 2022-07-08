@@ -1,5 +1,5 @@
 {
-  "name": "use-nfc",
+  "name": "@inhopj/use-nfc",
   "version": "1.0.0",
   "description": "Web-NFC api in form of a React hook",
   "main": "dist/index.js",
