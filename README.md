@@ -42,12 +42,15 @@ const App = () => {
   
   return (
     <>
-      <button
+      {isNDEFAvailable !== undefined && !isNDEFAvailable (
+        <div>Looks like NDEF is not available</div>
+      )}
+      {isNDEFAvailable && <button
         onClick={handleRead}
         disabled={permission as PermissionState === 'denied'}
       >
         Start Scan
-      </button>
+      </button>}
     
     
     {permission}
