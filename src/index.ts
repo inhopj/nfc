@@ -101,18 +101,13 @@ export const useNfc = () => {
     console.log("INSIDE WRITE FUNCTION");
 
     return new Promise(async (resolve, reject) => {
-      if (!isScanning) {
         try {
-          await ndef!.scan({ signal: readCtrl.signal})
           await ndef!.write(message, options);
           resolve(true);
         } catch (error) {
           console.log(error)
           reject(false);
         }
-        setIsScanning(true)
-      }
-
     });
   }
 
