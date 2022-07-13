@@ -2,6 +2,10 @@
 
 A React Hook that wraps the [Web NFC api](https://w3c.github.io/web-nfc/#handover-records)
 
+## Live Playground
+
+If you feel like experimenting just grab some of these [NFC tags](https://www.amazon.it/Outus-Moneta-riscrivibile-Bianco-Schede/dp/B08CRLRT5J/ref=sr_1_7?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2LYA7M87LYH0T&keywords=nfc+tag&qid=1657730581&sprefix=nfc+tag%2Caps%2C90&sr=8-7) and use the [Playground](https://nfc-inhopj.vercel.app/)
+
 ## Features
 
 - NFC (NDEF actually) feature detection.
